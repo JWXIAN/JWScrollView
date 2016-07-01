@@ -9,7 +9,6 @@
 #import "JWScrollViewCell.h"
 
 @interface JWScrollViewCell ()
-@property (strong, nonatomic) UIImageView *imageV;
 @end
 
 @implementation JWScrollViewCell
@@ -50,9 +49,5 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageV.frame = self.contentView.bounds;
-}
-- (void)setImage:(UIImage *)image {
-    _image = image;
-    self.imageV.image = image;
 }
 @end

@@ -18,26 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGSize sSize = [UIScreen mainScreen].bounds.size;
-    //代理回调
-    JWScrollView *scrollView1 = [[JWScrollView alloc] initWithFrame:CGRectMake(0, 20, sSize.width, 150)];
-    scrollView1.delegate = self;
-    [scrollView1 images:@[[UIImage imageNamed:@"活动默认图"]]];
-    [self.view addSubview:scrollView1];
+    NSArray *imageArr = @[[UIImage imageNamed:@"活动默认图"],
+                          @"http://images.apple.com/cn/iphone-6s/overview/images/og.jpg",
+                          @"http://images.apple.com/cn/ipad-pro/images/og_wechat.jpg",
+                          [UIImage imageNamed:@"活动默认图"]];
     
-    //Block回调
-    JWScrollView *scrollView2 = [[JWScrollView alloc] initWithFrame:CGRectMake(0, 220, sSize.width, 150)];
-    scrollView2.blockDidClickImageAtIndex = ^(NSInteger index, JWScrollView *scrollView){
+    //Block
+    JWScrollView *scroll = [JWScrollView initJWScrollViewWithBlock:CGRectMake(0, 20, sSize.width, 150) imageArr:imageArr duringTime:2.0 placeholder:[UIImage imageNamed:@"placeholder"] result:^(NSInteger index, JWScrollView *scrollView) {
         NSLog(@"%ld---%@", index, scrollView);
-    };
-    scrollView2.duringTime = 2.0;
-    [scrollView2 images:@[[UIImage imageNamed:@"活动默认图"], [UIImage imageNamed:@"活动默认图"]]];
-    [self.view addSubview:scrollView2];
+    }];
+    [self.view addSubview:scroll];
+    
+    //Delegate
+    JWScrollView *scroll1 = [JWScrollView initJWScrollViewWithDelegate:CGRectMake(0, 220, sSize.width, 150) imageArr:imageArr duringTime:3.0 placeholder:[UIImage imageNamed:@"placeholder"] delegate:self];
+    [self.view addSubview:scroll1];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 #pragma mark - 点击
 - (void)didClickImageAtIndex:(NSInteger)index scrollView:(JWScrollView *)scrollView{
     NSLog(@"%ld---%@", index, scrollView);

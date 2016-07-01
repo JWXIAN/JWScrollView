@@ -8,6 +8,7 @@
 
 #import "JWScrollView.h"
 #import "JWScrollViewCell.h"
+#import "UIImageView+WebCache.h"
 @interface JWScrollView()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *images;              // 图片数组
@@ -65,7 +66,11 @@ static NSString *CollectionCellID = @"CollectionCellID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     JWScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionCellID forIndexPath:indexPath];
     NSInteger index = [_cellData[indexPath.row] integerValue];
-    cell.image = _images[index];
+    if ([_images[index] isKindOfClass:[UIImage class]]) {
+        cell.imageV.image = _images[index];
+    }else{
+        [cell.imageV sd_setImageWithURL:_images[index] placeholderImage:_placeholder];
+    }
     cell.index = index;
     return cell;
 }
@@ -90,6 +95,24 @@ static NSString *CollectionCellID = @"CollectionCellID";
     }
 }
 
+#pragma mark - 初始化Block回调
++ (instancetype)initJWScrollViewWithBlock:(CGRect)frame imageArr:(NSArray *)imageArr duringTime:(NSTimeInterval)duringTime placeholder:(UIImage *)placeholder result:(blockDidClickImageAtIndex)result{
+    JWScrollView *scroll = [[JWScrollView alloc] initWithFrame:frame];
+    scroll.duringTime = duringTime;
+    scroll.blockDidClickImageAtIndex = result;
+    scroll.placeholder = placeholder;
+    [scroll images:imageArr];
+    return scroll;
+}
+#pragma mark - 初始化Delegate回调
++ (instancetype)initJWScrollViewWithDelegate:(CGRect)frame imageArr:(NSArray *)imageArr duringTime:(NSTimeInterval)duringTime placeholder:(UIImage *)placeholder delegate:(id<JWScrollViewDelegate>)delegate{
+    JWScrollView *scroll = [[JWScrollView alloc] initWithFrame:frame];
+    scroll.duringTime = duringTime;
+    scroll.delegate=delegate;
+    scroll.placeholder = placeholder;
+    [scroll images:imageArr];
+    return scroll;
+}
 - (void)setDuringTime:(NSTimeInterval)duringTime {
     _duringTime = duringTime;
     if (duringTime < 0.001) {

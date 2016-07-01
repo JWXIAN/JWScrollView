@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface JWScrollViewCell : UICollectionViewCell
-@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIImageView *imageView;
 @property (assign, nonatomic) NSInteger index;
+
+@property (strong, nonatomic) UIImageView *imageV;
 @end
