@@ -1,5 +1,5 @@
 # JWScrollView
-https://github.com/JWXIAN/JWScrollView/blob/master/Untitled.gif
+![image](https://github.com/JWXIAN/JWScrollView/blob/master/Untitled.gif)
 
     CGSize sSize = [UIScreen mainScreen].bounds.size;
     //代理回调
