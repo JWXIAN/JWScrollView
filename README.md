@@ -17,6 +17,6 @@
     [scrollView2 images:@[[UIImage imageNamed:@"活动默认图"], [UIImage imageNamed:@"活动默认图"]]];
     [self.view addSubview:scrollView2];
     
-  - (void)didClickImageAtIndex:(NSInteger)index scrollView:(JWScrollView *)scrollView{
+    - (void)didClickImageAtIndex:(NSInteger)index scrollView:(JWScrollView *)scrollView{
       NSLog(@"%ld---%@", index, scrollView);
-  }
+     }
