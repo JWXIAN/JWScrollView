@@ -4,6 +4,7 @@
 //
 //  Created by GJW on 16/6/30.
 //  Copyright © 2016年 JW. All rights reserved.
+//  https://github.com/JWXIAN/JWScrollView.git
 //
 
 #import "JWScrollViewCell.h"
