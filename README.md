@@ -1,5 +1,5 @@
 # JWScrollView
-![image](https://github.com/JWXIAN/JWScrollView/blob/master/Untitled.gif)
+![image](https://github.com/JWXIAN/JWScrollView/blob/master/gif.gif)
 
     CGSize sSize = [UIScreen mainScreen].bounds.size;
     NSArray *imageArr = @[[UIImage imageNamed:@"活动默认图"],
