@@ -1,5 +1,9 @@
 # JWScrollView
 
+[![Support](https://img.shields.io/badge/support-iOS%207%2B-brightgreen.svg)](https://github.com/JWXIAN/JWScrollView)
+[![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?maxAge=2592000)](https://github.com/JWXIAN/JWScrollView)
+[![Bintray](https://img.shields.io/badge/version-1.0-brightgreen.svg)](https://github.com/JWXIAN/JWScrollView)
+
 ![image](https://github.com/JWXIAN/JWScrollView/blob/master/gif.gif)
 
     CGSize sSize = [UIScreen mainScreen].bounds.size;
