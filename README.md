@@ -9,6 +9,7 @@
 ![image](https://github.com/JWXIAN/JWScrollView/blob/master/gif.gif)
 
 --
+```objc
     CGSize sSize = [UIScreen mainScreen].bounds.size;
     NSArray *imageArr = @[[UIImage imageNamed:@"活动默认图"],
                           @"http://images.apple.com/cn/iphone-6s/overview/images/og.jpg",
@@ -29,3 +30,4 @@
     - (void)didClickImageAtIndex:(NSInteger)index scrollView:(JWScrollView *)scrollView{
       NSLog(@"%ld---%@", index, scrollView);
      }
+```
